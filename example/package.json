@@ -1,0 +1,26 @@
+{
+  "name": "vue-freshchat-example",
+  "version": "1.0.0",
+  "description": "VueFreschat Example",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "author": "Duhamel <duhamelgm@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.6.0",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.5",
+    "vue": "^2.6.11"
+  }
+}

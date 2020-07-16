@@ -1,0 +1,27 @@
+{
+  "name": "vue-freshchat",
+  "version": "0.2.0",
+  "description": "A Freshchat plugin for Vue.js",
+  "main": "dist/vue-freshchat.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "rollup -c && uglifyjs -c -o dist/vue-freshchat.min.js dist/vue-freshchat.js"
+  },
+  "author": "Duhamel <duhamelgm@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "cross-env": "^7.0.2",
+    "rollup": "^2.21.0",
+    "rollup-plugin-vue": "^5.1.9",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
