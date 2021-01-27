@@ -1,6 +1,6 @@
 {
   "name": "vue-freshchat",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "A Freshchat plugin for Vue.js",
   "main": "dist/vue-freshchat.js",
   "directories": {

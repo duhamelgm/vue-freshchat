@@ -1,4 +1,4 @@
-# vue-freshcaht
+# vue-freshchat
 
 A reactive wrapper for [Freshchat's](https://www.freshworks.com/live-chat-software/) [JavaScript API](https://developers.freshchat.com/web-sdk/)
 
@@ -95,7 +95,7 @@ Will hide the widget bubble, and only show it when it's opened, use this propert
 
 #### `$freshchat.showWidget()`
 
-Will show the widget after hidden
+Will display the widget bubble if it has already been hidden
 
 ## License
 
