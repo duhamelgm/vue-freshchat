@@ -4,7 +4,7 @@ import { callIf, assert, is, mapInstanceToProps } from './util'
 const VueFreshchat = {}
 
 let Vue
-const getFreshchatInstance = ({ appToken }) => {
+const getFreshchatInstance = ({ appToken, host }) => {
   assert(Vue, 'call Vue.use(VueFreshchat) before creating an instance')
 
   const vm = new Vue({
@@ -61,7 +61,7 @@ const getFreshchatInstance = ({ appToken }) => {
   freshchat._boot = () => {
     window.fcWidget.init({
       token: appToken,
-      host: 'https://wchat.freshchat.com'
+      host: host ?? 'https://wchat.freshchat.com'
     })
     window.fcWidget.setExternalId(vm.externalId)
     window.fcWidget.user.setMeta(vm.user)
@@ -126,11 +126,11 @@ VueFreshchat.loadScript = function loadScript(done) {
 }
 
 let installed
-VueFreshchat.install = function install(_Vue, { appToken }) {
+VueFreshchat.install = function install(_Vue, { appToken, host }) {
   assert(!Vue, 'already installed.')
   Vue = _Vue
 
-  const vueFreshchat = getFreshchatInstance({ appToken })
+  const vueFreshchat = getFreshchatInstance({ appToken, host })
 
   Vue.mixin({
     mounted() {
@@ -161,4 +161,3 @@ VueFreshchat.install = function install(_Vue, { appToken }) {
 }
 
 export default VueFreshchat
-
