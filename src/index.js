@@ -109,6 +109,9 @@ const getFreshchatInstance = ({ appToken }) => {
   freshchat.hideWidget = () => {
     vm.hideWidget = true
   }
+  freshchat.showWidget = () => {
+    vm.hideWidget = false
+  }
 
   return freshchat
 }

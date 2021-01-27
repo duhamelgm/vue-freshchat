@@ -180,6 +180,10 @@ var getFreshchatInstance = function getFreshchatInstance(_ref) {
     vm.hideWidget = true;
   };
 
+  freshchat.showWidget = function () {
+    vm.hideWidget = false;
+  };
+
   return freshchat;
 };
 
