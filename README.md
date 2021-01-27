@@ -1,4 +1,4 @@
-# vue-freshcaht
+# vue-freshchat
 
 A reactive wrapper for [Freshchat's](https://www.freshworks.com/live-chat-software/) [JavaScript API](https://developers.freshchat.com/web-sdk/)
 
@@ -85,6 +85,10 @@ Calls `freshchat.open()` if the widget is closed and `freshchat.close()` if the 
 #### `$freshchat.hideWidget()`
 
 Will hide the widget bubble, and only show it when it's opened, use this property if you want to create your own personalized bubble
+
+#### `$freshchat.showWidget()`
+
+Will display the widget bubble if it has already been hidden
 
 ## License
 
