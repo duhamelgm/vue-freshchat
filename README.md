@@ -9,10 +9,10 @@ npm install vue-freshchat
 ```
 
 ```javascript
-import Vue from 'vue';
-import VueFreshchat from 'vue-freshchat';
+import Vue from "vue";
+import VueFreshchat from "vue-freshchat";
 
-Vue.use(VueFreshchat, { appToken: 'your-freshchat-token' });
+Vue.use(VueFreshchat, { appToken: "your-freshchat-token" });
 ```
 
 ## Usage
@@ -21,11 +21,11 @@ Vue.use(VueFreshchat, { appToken: 'your-freshchat-token' });
 
 ```javascript
 new Vue({
-  el: '#main',
+  el: "#main",
   data() {
     return {
       userExternalId: 1,
-      userEmail: 'john@doe.com',
+      userEmail: "john@doe.com",
     };
   },
   mounted() {
@@ -35,8 +35,8 @@ new Vue({
   watch: {
     userEmail() {
       this.$freshchat.setUserProperties({ email: this.userEmail });
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -49,6 +49,13 @@ npm run dev
 ```
 
 ## API
+
+### Parameters
+
+```
+appToken: (Required) Your freshchat auth token
+host: (Optional) Add a custom url to fetch the freshchat script from
+```
 
 ### Values
 
@@ -85,6 +92,10 @@ Calls `freshchat.open()` if the widget is closed and `freshchat.close()` if the 
 #### `$freshchat.hideWidget()`
 
 Will hide the widget bubble, and only show it when it's opened, use this property if you want to create your own personalized bubble
+
+#### `$freshchat.showWidget()`
+
+Will show the widget after hidden
 
 ## License
 
