@@ -78,7 +78,9 @@
 
   var getFreshchatInstance = function getFreshchatInstance(_ref) {
     var appToken = _ref.appToken,
-        host = _ref.host;
+        host = _ref.host,
+        _ref$config = _ref.config,
+        config = _ref$config === void 0 ? {} : _ref$config;
     assert(Vue, 'call Vue.use(VueFreshchat) before creating an instance');
     var vm = new Vue({
       data: function data() {
@@ -135,7 +137,8 @@
     freshchat._boot = function () {
       window.fcWidget.init({
         token: appToken,
-        host: host !== null && host !== void 0 ? host : 'https://wchat.freshchat.com'
+        host: host !== null && host !== void 0 ? host : 'https://wchat.freshchat.com',
+        config: config
       });
       window.fcWidget.setExternalId(vm.externalId);
       window.fcWidget.user.setMeta(vm.user);
@@ -181,6 +184,11 @@
       }
     };
 
+    freshchat.listen = function (event, func) {
+      if (!vm.ready) return;
+      window.fcWidget.on(event, func);
+    };
+
     freshchat.hideWidget = function () {
       vm.hideWidget = true;
     };
@@ -205,12 +213,15 @@
 
   VueFreshchat.install = function install(_Vue, _ref2) {
     var appToken = _ref2.appToken,
-        host = _ref2.host;
+        host = _ref2.host,
+        _ref2$config = _ref2.config,
+        config = _ref2$config === void 0 ? {} : _ref2$config;
     assert(!Vue, 'already installed.');
     Vue = _Vue;
     var vueFreshchat = getFreshchatInstance({
       appToken: appToken,
-      host: host
+      host: host,
+      config: config
     });
     Vue.mixin({
       mounted: function mounted() {

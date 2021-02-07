@@ -1,10 +1,10 @@
 /* globals window, document */
-import { callIf, assert, is, mapInstanceToProps } from './util'
+import { assert, mapInstanceToProps } from './util'
 
 const VueFreshchat = {}
 
 let Vue
-const getFreshchatInstance = ({ appToken, host }) => {
+const getFreshchatInstance = ({ appToken, host, config = {} }) => {
   assert(Vue, 'call Vue.use(VueFreshchat) before creating an instance')
 
   const vm = new Vue({
@@ -61,7 +61,8 @@ const getFreshchatInstance = ({ appToken, host }) => {
   freshchat._boot = () => {
     window.fcWidget.init({
       token: appToken,
-      host: host ?? 'https://wchat.freshchat.com'
+      host: host ?? 'https://wchat.freshchat.com',
+      config
     })
     window.fcWidget.setExternalId(vm.externalId)
     window.fcWidget.user.setMeta(vm.user)
@@ -106,6 +107,11 @@ const getFreshchatInstance = ({ appToken, host }) => {
       freshchat.open()
     }
   }
+  freshchat.listen = (event, func) => {
+    if(!vm.ready) return
+    
+    window.fcWidget.on(event, func)
+  }
   freshchat.hideWidget = () => {
     vm.hideWidget = true
   }
@@ -126,11 +132,11 @@ VueFreshchat.loadScript = function loadScript(done) {
 }
 
 let installed
-VueFreshchat.install = function install(_Vue, { appToken, host }) {
+VueFreshchat.install = function install(_Vue, { appToken, host, config = {} }) {
   assert(!Vue, 'already installed.')
   Vue = _Vue
 
-  const vueFreshchat = getFreshchatInstance({ appToken, host })
+  const vueFreshchat = getFreshchatInstance({ appToken, host, config })
 
   Vue.mixin({
     mounted() {
