@@ -12,7 +12,7 @@ npm install vue-freshchat
 import Vue from "vue";
 import VueFreshchat from "vue-freshchat";
 
-Vue.use(VueFreshchat, { appToken: "your-freshchat-token" });
+Vue.use(VueFreshchat, { appToken: "your-freshchat-token", config: { } }); // config object is optional
 ```
 
 ## Usage
@@ -55,6 +55,7 @@ npm run dev
 ```
 appToken: (Required) Your freshchat auth token
 host: (Optional) Add a custom url to fetch the freshchat script from
+config: (Optional) Additional configuration for initializing freshchat
 ```
 
 ### Values
@@ -88,6 +89,9 @@ Calls `freshchat.close()`.
 #### `$freshchat.toggle()`
 
 Calls `freshchat.open()` if the widget is closed and `freshchat.close()` if the widget is open.
+#### `$freshchat.listen(event, function)`
+
+Calls `freshchat.on(event, function)`
 
 #### `$freshchat.hideWidget()`
 
