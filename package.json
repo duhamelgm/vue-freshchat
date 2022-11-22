@@ -19,7 +19,7 @@
     "@rollup/plugin-node-resolve": "^8.4.0",
     "cross-env": "^7.0.2",
     "rollup": "^2.21.0",
-    "rollup-plugin-vue": "^5.1.9",
+    "rollup-plugin-vue": "^6.0.0",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
